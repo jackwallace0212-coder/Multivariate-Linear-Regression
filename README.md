@@ -19,36 +19,34 @@ Display the coefficient and intercept values of the trained model.
 ### Step5
 Predict the output for the new input [[3,5]] using the predict() method and display the result.
 
-<img width="616" height="471" alt="598156981-74cca7b1-28ea-4e85-8221-8943a2a2648a" src="https://github.com/user-attachments/assets/cedc3820-e5dd-4313-aeac-1ed8ec04ef56" />
 
 
 ## Program:
 ```
-import numpy as np
-from sklearn.linear_model import LinearRegression
+Developed by: SARANYA R
+Register Number: 212225040384
 
-X = np.array([[1, 1], [1, 2], [2, 2], [2, 3]])
-y = np.dot(X, np.array([1, 2])) + 3
+import pandas as pd
+from sklearn import linear_model
 
-reg = LinearRegression().fit(X, y)
+df = pd.read_csv("car.csv")
 
-reg.score(X, y)
+X = df[['Weight', 'Volume']]
+y = df['CO2']
 
-print('Coefficients: ', reg.coef_)
-print('Intercept: ', reg.intercept_)
+regr = linear_model.LinearRegression()
+regr.fit(X, y)
 
-print('Prediction: ', reg.predict(np.array([[3, 5]])))
+print('Coefficients:', regr.coef_)
+print('Intercept:', regr.intercept_)
 
-
-
-
-
-
+predictedCO2 = regr.predict(pd.DataFrame([[3300, 1300]], columns=['Weight', 'Volume']))
+print('Predicted CO2 for the corresponding weight and volume:', predictedCO2)
 
 ```
 ## Output:
-<img width="616" height="471" alt="598156981-74cca7b1-28ea-4e85-8221-8943a2a2648a" src="https://github.com/user-attachments/assets/4cc705d1-ab83-4f1e-b97d-96c0486e4d4c" />
 
+<img width="693" height="64" alt="image" src="https://github.com/user-attachments/assets/ce528863-c8df-4294-8b97-1a1a00aeafa5" />
 
 ## Result
 Thus the multivariate linear regression is implemented and predicted the output using python program.
